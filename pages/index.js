@@ -12,10 +12,10 @@ export default function Home() {
     const slug = guestName
       .trim()
       .toLowerCase()
-      .normalize('NFD') // Normalize accented characters
-      .replace(/[\u0300-\u036f]/g, '') // Remove diacritics
-      .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
-      .replace(/\s+/g, '-'); // Replace spaces with dashes
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-');
 
     if (slug) {
       setLoading(true);
@@ -25,10 +25,18 @@ export default function Home() {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>NJOYMENT BBQ 🍗🔥</h1>
+      <h1 style={styles.title}>NJOYMENT BBQ 🔥</h1>
+
+      <img
+        src="https://raw.githubusercontent.com/NJOYMENT/BBQ/34a310a7e043f0e05037b9a60cac1a2dc593a3c5/pages/njoyment-poster.avif"
+        alt="BBQ Poster"
+        style={styles.image}
+      />
+
       <p style={styles.message}>
-        Please enter your name (as it appears on your Partiful profile) and unlock your message for the BBQ this Saturday. If you have a +1, please make sure they read the message you got!.
+        Please enter your name (as it appears on your Partiful profile) to let us know what you’ll bring to the BBQ this Saturday. If you have a +1, please make sure they submit their name separately.
       </p>
+
       <form onSubmit={handleSubmit}>
         <label htmlFor="guest-name" style={{ display: 'none' }}>Guest Name</label>
         <input
@@ -36,7 +44,7 @@ export default function Home() {
           type="text"
           value={guestName}
           onChange={(e) => setGuestName(e.target.value)}
-          placeholder="e.g. Oshey Baddest"
+          placeholder="e.g. Your name as it appears on your Partiful profile"
           required
           style={styles.input}
         />
@@ -66,10 +74,17 @@ const styles = {
     margin: 0,
     textAlign: 'center',
     padding: '1rem',
+    overflowY: 'auto',
   },
   title: {
     fontSize: '2.5rem',
     marginBottom: '1rem',
+  },
+  image: {
+    maxWidth: '90%',
+    height: 'auto',
+    marginBottom: '2rem',
+    borderRadius: '8px',
   },
   message: {
     fontSize: '1.2rem',
