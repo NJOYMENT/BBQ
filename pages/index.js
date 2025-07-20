@@ -4,33 +4,50 @@ import { useRouter } from 'next/router';
 
 export default function Home() {
   const [guestName, setGuestName] = useState('');
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const slug = guestName.trim().toLowerCase().replace(/\s+/g, '-');
+    const slug = guestName
+      .trim()
+      .toLowerCase()
+      .normalize('NFD') // Normalize accented characters
+      .replace(/[\u0300-\u036f]/g, '') // Remove diacritics
+      .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
+      .replace(/\s+/g, '-'); // Replace spaces with dashes
+
     if (slug) {
+      setLoading(true);
       router.push(`/guest/${slug}`);
     }
   };
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>Welcome to the BBQ Guest Page 🔥</h1>
+      <h1 style={styles.title}>NJOYMENT BBQ 🔥</h1>
       <p style={styles.message}>
-        Enter your full name to get your personalized message and instructions.
+        Please enter your name (as it appears on your Partiful profile) to let us know what you’ll bring to the BBQ this Saturday. If you have a +1, please make sure they submit their name separately.
       </p>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="guest-name" style={{ display: 'none' }}>Guest Name</label>
         <input
+          id="guest-name"
           type="text"
           value={guestName}
           onChange={(e) => setGuestName(e.target.value)}
-          placeholder="e.g. Janay Marie"
+          placeholder="e.g. Your name as it appears on your Partiful profile"
           required
           style={styles.input}
         />
         <br />
-        <button type="submit" style={styles.button}>Continue</button>
+        <button type="submit" disabled={loading} style={{ 
+          ...styles.button, 
+          opacity: loading ? 0.7 : 1,
+          cursor: loading ? 'not-allowed' : 'pointer',
+        }}>
+          {loading ? 'Loading...' : 'Continue'}
+        </button>
       </form>
     </div>
   );
@@ -73,7 +90,6 @@ const styles = {
     backgroundColor: 'black',
     color: 'white',
     border: 'none',
-    cursor: 'pointer',
     borderRadius: '4px',
   },
 };
