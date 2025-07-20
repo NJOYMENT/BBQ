@@ -34,7 +34,7 @@ export default function Home() {
       />
 
       <p style={styles.message}>
-        Please enter your name (as it appears on your Partiful profile) to let us know what you’ll bring to the BBQ this Saturday. If you have a +1, please make sure they submit their name separately.
+         Please enter your name (as it appears on your Partiful profile) and unlock your message for the BBQ this Saturday. If you have a +1, please make sure they read the message you got!.
       </p>
 
       <form onSubmit={handleSubmit}>
@@ -44,7 +44,7 @@ export default function Home() {
           type="text"
           value={guestName}
           onChange={(e) => setGuestName(e.target.value)}
-          placeholder="e.g. Your name as it appears on your Partiful profile"
+          placeholder="e.g. Oshey Baddest"
           required
           style={styles.input}
         />
