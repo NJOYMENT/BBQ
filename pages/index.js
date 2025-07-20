@@ -85,6 +85,12 @@ const styles = {
     height: 'auto',
     marginBottom: '2rem',
     borderRadius: '8px',
+      },
+  image: {
+    width: '60%',         // ✅ This is the updated style
+    height: 'auto',
+    marginBottom: '2rem',
+    borderRadius: '8px',
   },
   message: {
     fontSize: '1.2rem',
