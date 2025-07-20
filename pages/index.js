@@ -54,9 +54,12 @@ export default function Home() {
           opacity: loading ? 0.7 : 1,
           cursor: loading ? 'not-allowed' : 'pointer',
         }}>
-          {loading ? 'Loading...' : 'Continue'}
+          {loading ? 'Loading...' : 'Find Me'}
         </button>
       </form>
+          <footer style={styles.footer}>
+  this is coded by nj
+</footer>
     </div>
   );
 }
@@ -97,6 +100,12 @@ const styles = {
     marginBottom: '2rem',
     maxWidth: '600px',
   },
+  footer: {
+  marginTop: '2rem',
+  fontSize: '0.9rem',
+  color: '#555',
+  textAlign: 'center',
+},
   input: {
     padding: '10px',
     fontSize: '1rem',
