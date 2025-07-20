@@ -87,7 +87,7 @@ const styles = {
     borderRadius: '8px',
       },
   image: {
-    width: '60%',         // ✅ This is the updated style
+    width: '60%',         
     height: 'auto',
     marginBottom: '2rem',
     borderRadius: '8px',
