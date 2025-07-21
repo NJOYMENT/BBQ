@@ -56,6 +56,16 @@ export default function Home() {
         }}>
           {loading ? 'Loading...' : 'Find Me'}
         </button>
+          <a
+          href="https://buy.stripe.com/9B6aEYaLT3LVe3VabW6Na00"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={styles.paymentButton}
+        >
+          Make a Contribution
+        </a>
+      </form>
+
       </form>
           <footer style={styles.footer}>
   this is coded by nj
