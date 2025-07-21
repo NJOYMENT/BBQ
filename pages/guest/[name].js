@@ -34,8 +34,16 @@ export default function GuestPage() {
         <strong>DIETARY REQUESTS:</strong><br />
         If you have requested either no pork, no fish or have an allergy, please make sure NJ, Hillary or Renee know as soon as you arrive to ensure you get something to eat. (Heads up!) We won’t be able to do much if you arrive too late!
       </p>
-      <p style={styles.text}>Thanks soo much and see you soon!</p>
       <p style={styles.text}>The full address will be listed 24 hrs to the event and the closest station is Norbury Station!</p>
+      <p style={styles.text}>Thanks soo much and see you soon!</p>
+  <p style={styles.message}>
+    If you'd like to make a contribution, please use the button below:
+  </p>
+  <a
+    href="https://buy.stripe.com/9B6aEYaLT3LVe3VabW6Na00"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={styles.paymentButton}
     </div>
   );
 }
@@ -58,5 +66,19 @@ const styles = {
     fontSize: '1.1rem',
     marginBottom: '1rem',
     lineHeight: '1.6',
-  },
+  },contributionContainer: {
+  marginTop: '2rem',
+  textAlign: 'center',
+},
+paymentButton: {
+  display: 'inline-block',
+  marginTop: '1rem',
+  padding: '10px 20px',
+  fontSize: '1rem',
+  backgroundColor: '#6772e5', // Stripe blue
+  color: 'white',
+  textDecoration: 'none',
+  borderRadius: '4px',
+  cursor: 'pointer',
+},
 };
