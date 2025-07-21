@@ -109,6 +109,17 @@ const styles = {
     fontSize: '1.2rem',
     marginBottom: '2rem',
     maxWidth: '600px',
+   },
+  paymentButton: {
+    display: 'inline-block',
+    marginTop: '1rem',
+    padding: '10px 20px',
+    fontSize: '1rem',
+    backgroundColor: '#6772e5',
+    color: 'white',
+    textDecoration: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
   },
   footer: {
   marginTop: '2rem',
